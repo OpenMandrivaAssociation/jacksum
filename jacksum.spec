@@ -33,7 +33,7 @@
 
 Name:           jacksum
 Version:        1.7.0
-Release:        %mkrel 3
+Release:        %mkrel 4
 Epoch:          0
 Summary:        Software for computing and verifying checksums, CRC's, and message digests
 License:        GPL
@@ -83,14 +83,16 @@ Javadoc for %{name}.
 
 %prep
 %setup -q -c
+%{__perl} -pi -e 's/\r$//g' history.txt license.txt readme_de.txt readme.txt docs/*
 pushd source
 %{_bindir}/unzip -qq %{name}-src.zip
 popd
 %patch0 -p1
+%{__perl} -pi -e 's|<javadoc|<javadoc source="1.4"|g' build.xml
 
 %build
 pushd source
-%ant jar javadoc
+%{ant} jar #javadoc
 popd
 
 %install
@@ -103,15 +105,12 @@ popd
 # jars
 %{__mkdir_p} %{buildroot}%{_javadir}
 %{__cp} -a source/%{name}.jar %{buildroot}%{_javadir}/%{name}-%{version}.jar
-(cd %{buildroot}%{_javadir} && for jar in *-%{version}.jar; do %{__ln_s} ${jar} \
-`echo $jar| sed "s|-%{version}||g"`; done)
+(cd %{buildroot}%{_javadir} && for jar in *-%{version}.jar; do %{__ln_s} ${jar} `echo $jar| sed "s|-%{version}||g"`; done)
 
 # javadoc
 %{__mkdir_p} %{buildroot}%{_javadocdir}/%{name}-%{version}
-%{__cp} -a source/javadoc/* %{buildroot}%{_javadocdir}/%{name}-%{version}
+#%{__cp} -a source/javadoc/* %{buildroot}%{_javadocdir}/%{name}-%{version}
 %{__ln_s} %{name}-%{version} %{buildroot}%{_javadocdir}/%{name}
-
-%{__perl} -pi -e 's/\r$//g' history.txt license.txt readme_de.txt readme.txt docs/*
 
 %if %{gcj_support}
 %{_bindir}/aot-compile-rpm
@@ -128,10 +127,6 @@ popd
 %{clean_gcjdb}
 %endif
 
-%post javadoc
-%{__rm} -f %{_javadocdir}/%{name}
-%{__ln_s} %{name}-%{version} %{_javadocdir}/%{name}
-
 %files
 %defattr(0644,root,root,0755)
 %doc history.txt license.txt readme_de.txt readme.txt docs/*
@@ -143,5 +138,5 @@ popd
 
 %files javadoc
 %defattr(0644,root,root,0755)
-%ghost %doc %{_javadocdir}/%{name}
+%doc %{_javadocdir}/%{name}
 %doc %{_javadocdir}/%{name}-%{version}
