@@ -33,7 +33,7 @@
 
 Name:           jacksum
 Version:        1.7.0
-Release:        %mkrel 4
+Release:        %mkrel 5
 Epoch:          0
 Summary:        Software for computing and verifying checksums, CRC's, and message digests
 License:        GPL
@@ -47,8 +47,6 @@ Patch0:         %{name}-javadoc.patch
 BuildRequires:  ant
 BuildRequires:  jpackage-utils >= 0:1.5
 %if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
 BuildRequires:  java-gcj-compat-devel
 %else
 BuildArch:      noarch
