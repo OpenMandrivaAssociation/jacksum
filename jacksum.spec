@@ -33,7 +33,7 @@
 
 Name:           jacksum
 Version:        1.7.0
-Release:        %mkrel 5
+Release:        %mkrel 6
 Epoch:          0
 Summary:        Software for computing and verifying checksums, CRC's, and message digests
 License:        GPL
@@ -45,7 +45,7 @@ Source0:        http://osdn.dl.sourceforge.net/jacksum/jacksum-1.7.0.zip
 Source1:        %{name}
 Patch0:         %{name}-javadoc.patch
 BuildRequires:  ant
-BuildRequires:  jpackage-utils >= 0:1.5
+BuildRequires:  java-rpmbuild >= 0:1.5
 %if %{gcj_support}
 BuildRequires:  java-gcj-compat-devel
 %else
