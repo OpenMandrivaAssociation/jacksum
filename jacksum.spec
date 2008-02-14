@@ -39,6 +39,7 @@ Summary:        Software for computing and verifying checksums, CRC's, and messa
 License:        GPL
 URL:            http://www.jonelo.de/java/jacksum/
 Group:          Development/Java
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 #Vendor:         JPackage Project
 #Distribution:   JPackage
 Source0:        http://osdn.dl.sourceforge.net/jacksum/jacksum-1.7.0.zip
