@@ -33,7 +33,7 @@
 
 Name:           jacksum
 Version:        1.7.0
-Release:        %mkrel 9
+Release:        %mkrel 10
 Epoch:          0
 Summary:        Software for computing and verifying checksums, CRC's, and message digests
 License:        GPL
