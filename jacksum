@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# jacksum script
+# JPackage Project <http://www.jpackage.org/>
+# $Id$
+
+# Source functions library
+. /usr/share/java-utils/java-functions
+
+# Source system prefs
+if [ -f /etc/jacksum.conf ] ; then
+  . /etc/jacksum.conf
+fi
+
+# Source user prefs
+if [ -f $HOME/.jacksumrc ] ; then
+  . $HOME/.jacksumrc
+fi
+
+# Configuration
+MAIN_CLASS=Jacksum
+BASE_FLAGS=""
+BASE_JARS="jacksum"
+
+# Set parameters
+set_jvm
+set_classpath $BASE_JARS
+set_flags $BASE_FLAGS
+
+# Let's start
+run "$@"

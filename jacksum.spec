@@ -138,3 +138,44 @@ popd
 %defattr(0644,root,root,0755)
 %doc %{_javadocdir}/%{name}
 %doc %{_javadocdir}/%{name}-%{version}
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 0:1.7.0-10mdv2011.0
++ Revision: 619709
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0:1.7.0-9mdv2010.0
++ Revision: 429582
+- rebuild
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 0:1.7.0-8mdv2009.0
++ Revision: 247331
+- rebuild
+- fix no-buildroot-tag
+- kill re-definition of %%buildroot on Pixel's request
+
+* Sun Dec 16 2007 Anssi Hannula <anssi@mandriva.org> 0:1.7.0-6mdv2008.1
++ Revision: 120899
+- buildrequire java-rpmbuild, i.e. build with icedtea on x86(_64)
+
+* Sat Sep 15 2007 Anssi Hannula <anssi@mandriva.org> 0:1.7.0-5mdv2008.0
++ Revision: 87396
+- rebuild to filter out autorequires of GCJ AOT objects
+- remove unnecessary Requires(post) on java-gcj-compat
+
+* Wed Aug 29 2007 David Walluck <walluck@mandriva.org> 0:1.7.0-4mdv2008.0
++ Revision: 74735
+- disable javadoc build as sinjdoc doesn't like it
+- Import jacksum
+
+
+
+* Tue Aug 22 2006 David Walluck <walluck@mandriva.org> 0:1.7.0-3mdv2007.0
+- add script
+
+* Fri Aug 11 2006 David Walluck <walluck@mandriva.org> 0:1.7.0-2mdv2007.0
+- fix javadoc creation
+
+* Mon Jul 31 2006 David Walluck <walluck@mandriva.org> 0:1.7.0-1mdv2007.0
+- release
