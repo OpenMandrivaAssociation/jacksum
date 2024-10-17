@@ -37,7 +37,7 @@ Release:        11
 Epoch:          0
 Summary:        Software for computing and verifying checksums, CRC's, and message digests
 License:        GPL
-URL:            http://www.jonelo.de/java/jacksum/
+URL:            https://www.jonelo.de/java/jacksum/
 Group:          Development/Java
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 #Vendor:         JPackage Project
